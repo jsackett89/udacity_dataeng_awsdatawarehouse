@@ -1,10 +1,10 @@
 ## DATA WAREHOUSING WITH AWS
 
-The goal of this project is to create a data warehouse that Sparkify can use to analyze listening trends of their users. 
+The goal of this project is to create a data warehouse that Sparkify can use to analyze listening trends of their users.
 
 ## DATABASE DESIGN
 
-A star schema was chosen here for query speed. The tables are as follows: 
+A star schema was chosen here for query speed. The tables are as follows:
 
 FACT TABLE
 songplays -- contains information about user song plays over time
@@ -18,20 +18,20 @@ songs - songs in music database
 song_id, title, artist_id, year, duration
 
 artists - artists in music database
-artist_id, name, location, lattitude, longitude
+artist_id, name, location, latitude, longitude
 
 time - timestamps of records in songplays broken down into specific units
 start_time, hour, day, week, month, year, weekday
 
 ## PROJECT TEMPLATE
 
-This project contains several files to perform the ETL from S3 to Redshift: 
+This project contains several files to perform the ETL from S3 to Redshift:
 
-`sql_queries.py` -- Contains the DROP, CREATE, and INSERT queries for the tables in the database schema above. 
+`sql_queries.py` -- Contains the DROP, CREATE, COPY (from S3), and INSERT (into final data model) queries for the tables in the database schema above.
 
-`create_tables.py` -- Contains the code that executes the CREATE TABLEs queries from `sql_queries.py`
+`create_tables.py` -- Contains the code that executes the DROP and CREATE TABLEs queries from `sql_queries.py`
 
-`etl.py` -- Contains the code that copies data from S3 to staging, and then from staging to the Redshift DB
+`etl.py` -- Contains the code that copies data from S3 to staging, and then from staging to the Redshift DB from `sql_queries.py`
 
 `dwh.cfg` -- Config file with redshift credentials (exported for security purposes)
 
@@ -43,8 +43,8 @@ This project contains several files to perform the ETL from S3 to Redshift:
 
 3. Run `python create_tables.py` to create the database schema.
 
-4. Run `python etl.py` to populate the db. 
+4. Run `python etl.py` to populate the db.
 
 5. User Query Editor in AWS Console to validate results.
 
-6. Delete cluster and IAM role. 
+6. Delete cluster and IAM role.

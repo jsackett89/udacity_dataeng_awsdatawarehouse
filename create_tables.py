@@ -23,7 +23,8 @@ def create_tables(cur, conn):
 
 
 def main():
-    """ Instantiate configparser instance, use to read in Redshift credentials from dwh.cfg file
+    """ Main function that executes logic in the functions defined above.
+        First, instantiate configparser instance, use to read in Redshift credentials from dwh.cfg file
     """
     config = configparser.ConfigParser()
     config.read('dwh.cfg')
