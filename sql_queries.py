@@ -157,16 +157,16 @@ SELECT DISTINCT artist_id,
 FROM staging_songs
 """)
 
-time_table_insert = ("""INSERT INTO time
+time_table_insert = ("""INSERT INTO time (start_time, hour, day, week, month, year, weekday)
         WITH temp_time AS (SELECT TIMESTAMP 'epoch' + (ts/1000 * INTERVAL '1 second') as ts FROM staging_events)
         SELECT DISTINCT
-        ts,
-        extract(hour from ts),
-        extract(day from ts),
-        extract(week from ts),
-        extract(month from ts),
-        extract(year from ts),
-        extract(weekday from ts)
+        ts AS start_time,
+        extract(hour from ts) AS hour,
+        extract(day from ts) AS day,
+        extract(week from ts) AS week,
+        extract(month from ts) AS month,
+        extract(year from ts) AS year,
+        extract(weekday from ts) AS weekday
         FROM temp_time
 """)
 
