@@ -91,6 +91,7 @@ time_table_create = ("""CREATE TABLE IF NOT EXISTS time
     (start_time TIMESTAMP PRIMARY KEY,
     hour INT,
     day INT,
+    week INT,
     month INT,
     year INT,
     weekday INT)
